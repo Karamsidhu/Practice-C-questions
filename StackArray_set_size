@@ -1,0 +1,36 @@
+// Stack Array
+#include <stdio.h>
+#include <stdlib.h>
+
+int stack[256];
+static int count = 0;
+
+void push(int x){
+    if (count == 256)
+        exit(1);
+        
+    stack[count] = x;
+    ++count;
+}
+
+int pop(void) {
+    if (count == 0) 
+        exit(1);
+        
+    int result = stack[count-1];
+    --count;
+    return result;
+}
+
+int main() {
+    push(1);
+    push(2);
+    push(3);
+    push(5);
+
+    
+    for (int i = count; i > 0; --i) {
+        printf("%d, count: %d\n", pop(), count);
+    }
+    return 0;
+}
